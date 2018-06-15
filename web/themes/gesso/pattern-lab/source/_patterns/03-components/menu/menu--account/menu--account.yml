@@ -1,0 +1,31 @@
+---
+menu_name: "account"
+attributes:
+  Attribute():
+    class:
+      - menu
+items:
+- title: My Account
+  url: "#"
+  attributes:
+    Attribute():
+      class:
+        -
+  original_link:
+    options:
+      attributes:
+        Attribute():
+          class:
+            -
+- title: Logout
+  url: "#"
+  attributes:
+    Attribute():
+      class:
+        -
+  original_link:
+    options:
+      attributes:
+        Attribute():
+          class:
+            -
