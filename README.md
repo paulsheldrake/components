@@ -1,5 +1,3 @@
-# 00-Requirements
-
 # Component-based Theming with Twig
 This repository is for using a Composer based workflow with Drupal 8.  We will be using this repository and the branches to maintain various snapshots as we progress thru each lesson.
 
