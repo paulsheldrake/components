@@ -136,7 +136,7 @@ To complete the scaffolding of our Drupal 8 project we will need to open a termi
 Importing the database
 
 ```
-  lando db-import database.sql.gz
+  lando db-import components.sql.gz
 ```
 
 **Step Four**
