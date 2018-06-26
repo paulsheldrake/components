@@ -25,7 +25,7 @@ If you do not have administrative rights, in the case of using a work laptop, th
 You will need to ensure that you have PHP 7.1 installed on your computer.  PHP 7.1 is the minimum version needed in order to run some of the various tools we will be using for this training.  This can be accomplished by having installed it natively on MAC or Linux or by using an *AMP server such as [Acquia Dev Desktop](https://www.acquia.com/drupal/acquia-dev-desktop) or [MAMP](https://www.mamp.info/en/).
 
 ### Docker
-In order to run a containerized environment using Lando we will first need to install Docker.  You can check the system requirements for your operating system by navigating to [system requirements](https://docs.devwithlando.io/installation/system-requirements.html)page and verifying the Docker Engine Requirements.  Once Docker is installed you can move on to installing Lando
+In order to run a containerized environment using Lando we will first need to install Docker.  You can check the system requirements for your operating system by navigating to [system requirements](https://docs.devwithlando.io/installation/system-requirements.html) page and verifying the Docker Engine Requirements.  Once Docker is installed you can move on to installing Lando
 
 ### Lando
 To eliminate the need for various setups that may involve different **AMP** (Apache/MySQL/PHP) stacks we will be using a `Lando` a Docker based development environment to work with PHP, MySQL and Drupal.  We can download and install Lando for Windows, MACOS and Linux by navigating to the [download](https://docs.devwithlando.io/installation/installing.html) page and following the install prompts for your operating system.
