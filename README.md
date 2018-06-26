@@ -7,6 +7,8 @@ Below is a list of requirements that will ensure you get the most out of the tra
 
 ## Requirements
 - Administrative rights to install and configure various applications
+- PHP 7.1
+- Docker
 - Lando
 - Terminal
 - Composer
@@ -18,6 +20,12 @@ Below is a list of requirements that will ensure you get the most out of the tra
 You will need to ensure that you have administrative rights to install, configure or manage file permissions to install the required software needed to follow along in class.  Bellow is a list of everything that needs to be installed.  On top of that there will be instances where we may need to modify a file setting in Drupal that will require administrative rights.
 
 If you do not have administrative rights, in the case of using a work laptop, then please have your company install the following items for you.
+
+### PHP
+You will need to ensure that you have PHP 7.1 installed on your computer.  PHP 7.1 is the minimum version needed in order to run some of the various tools we will be using for this training.  This can be accomplished by having installed it natively on MAC or Linux or by using an *AMP server such as [Acquia Dev Desktop](https://www.acquia.com/drupal/acquia-dev-desktop) or [MAMP](https://www.mamp.info/en/).
+
+### Docker
+In order to run a containerized environment using Lando we will first need to install Docker.  You can check the system requirements for your operating system by navigating to [system requirements](https://docs.devwithlando.io/installation/system-requirements.html)page and verifying the Docker Engine Requirements.  Once Docker is installed you can move on to installing Lando
 
 ### Lando
 To eliminate the need for various setups that may involve different **AMP** (Apache/MySQL/PHP) stacks we will be using a `Lando` a Docker based development environment to work with PHP, MySQL and Drupal.  We can download and install Lando for Windows, MACOS and Linux by navigating to the [download](https://docs.devwithlando.io/installation/installing.html) page and following the install prompts for your operating system.
@@ -147,3 +155,6 @@ We can now preview our Drupal 8 website by either selecting the URL within the t
 We now have a Drupal 8 project titled Pacific Whale Conservancy that we will be using throughout the remaining training.  This Drupal 8 instance is configured with the latest best practices in mind for site building.  This includes use of the Media module, Paragraphs, various Twig modules and the Components modules.
 
 This training does not cover site building but we will briefly discuss various decision made when implementing a component-based theme using Twig and Pattern Lab.
+
+## Alternative install
+While the above steps seem a little daunting they do provide the best development environment for working with Drupal 8.  However, if you are stuggling with those steps then you will need to install something like Acquia Dev Desktop to ensure you have the PHP, MySQL, Drush requirements taken care of.
