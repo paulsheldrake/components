@@ -1,7 +1,5 @@
-# 00-Requirements
-
 # Component-based Theming with Twig
-This repository is for using a Composer based workflow with Drupal 8.  We will be using this repository and the branches to maintain various snapshots as we progress thru each lesson.
+This repository provides a detailed guide to setting up a local development environment that utilizes a Composer based workflow with Drupal 8.
 
 Please ensure that you follow the directions outlined below to install and configure the necessary requirements for this training. We will not be able to cover these steps in class nor will we have time to stop class to assist with setting up laptops.
 
@@ -9,7 +7,7 @@ Below is a list of requirements that will ensure you get the most out of the tra
 
 ## Requirements
 - Administrative rights to install and configure various applications
-- Lando
+- Acquia Dev Desktop or Lando
 - Terminal
 - Composer
 - Node & NPM
@@ -17,24 +15,33 @@ Below is a list of requirements that will ensure you get the most out of the tra
 - Git
 
 ### Administrative rights
-You will need to ensure that you have administrative rights to install, configure or manage file permissions to install the required software needed to follow along in class.  Bellow is a list of everything that needs to be installed.  On top of that there will be instances where we may need to modify a file setting in Drupal that will require administrative rights.
+You will need to ensure that you have administrative rights to install, configure or manage file permissions required by the list of tools outlined above as they will be needed to follow along in class.  Bellow is a list of everything that needs to be installed.
 
 If you do not have administrative rights, in the case of using a work laptop, then please have your company install the following items for you.
 
-### Lando
-To eliminate the need for various setups that may involve different **AMP** (Apache/MySQL/PHP) stacks we will be using a `Lando` a Docker based development environment to work with PHP, MySQL and Drupal.  We can download and install Lando for Windows, MACOS and Linux by navigating to the [download](https://docs.devwithlando.io/installation/installing.html) page and following the install prompts for your operating system.
 
-Once complete we will revisit how to use Lando to import a Drupal 8 website as well as how to start a server, run composer, drush and import database snapshots that we will use throughout the training.
+### Acquia Dev Desktop
+To eliminate the need for various setups that may involve different AMP (Apache/MySQL/PHP) stacks we recommend using Acquia Dev Desktop to work with PHP, MySQL and Drupal. You can download and install Dev Desktop for both Windows and MAC by navigating to the [download](https://dev.acquia.com/downloads) page and following the install prompts for your operating system.
+
+Once completed we will revisit how to use Acquia Dev Desktop to import a local Drupal 8 website, including how to import the intitial database snapshot that will be used throughout the training.
+
+
+### Lando (Alternative setup)
+##### This is an alternative setup to using Acquia Dev Desktop and is for advanced users only.
+
+To eliminate the need for various setups that may involve different **AMP** (Apache/MySQL/PHP) stacks and consider yousrself an advanced user then you can choose to use `Lando` a Docker based development environment to work with PHP, MySQL and Drupal.  You can download and install Lando for Windows, MACOS and Linux by navigating to the [download](https://docs.devwithlando.io/installation/installing.html) page and following the install prompts for your operating system.
+
+Once completed we will revisit how to use Lando to import a Drupal 8 website as well as how to start a server, run composer, drush and import the initial database snapshot that will be used throughout the training.
 
 ### Terminal
-The terminal is an interface in which we can type and execute text based commands.  It can be much faster to complete some tasks using a Terminal than with graphical applications and menus. The remaining requirements will all be ran from a Terminal using a series of command line prompts.  Take a moment to ensure that we have a Terminal (MAC) or Command Prompt (Windows) available to use.
+The terminal is an interface in which we can type and execute text based commands.  It can be much faster to complete some tasks using a Terminal than with graphical applications and menus. The remaining requirements will all be ran from a Terminal using a series of command line prompts.  Take a moment to ensure that you have a Terminal (MAC) or Command Prompt (Windows) available to use.
 
-We will be using the terminal window to work with `Composer`, `NPM`, `Grunt` and `Git` throughout the training.  It is important to be comfortable using the command line as it should be part of our daily Front End development workflow.
+We will be using the terminal window to work with tools such as `Composer`, `NPM`, `Grunt` and `Git` throughout the training.  It is important to be comfortable using the command line as it should be part of any daily Front End development workflow.
 
 ### Composer
 Composer (https://getcomposer.org/) is a dependency manager for PHP that allows us to perform a multitude of tasks; everything from creating a Drupal project to declaring libraries and even installing contributed modules, just to name a few. The advantage of using Composer is that it allows us to quickly install and update dependencies by simply running a few commands from a terminal window.
 
-`Lando` will allow us to run these commands without the need to physically install `Composer` on our computer or laptop.  We will revisit the various `Composer` commands a little later in the training.
+Both `Acquia Dev Desktop` and `Lando` will allow us to run these commands without the need to physically install `Composer` on our computer or laptop.  We will revisit the various `Composer` commands that will be used during the training.
 
 ### Node & NPM
 [Node](https://nodejs.org/en/) is a cross platform runtime environment for creating server side and networking applications. Javascript running outside the browser. [NPM](https://www.npmjs.com/) is the package manager for JavaScript used to install, share, and distribute code and is used to manage dependencies in projects.
@@ -56,58 +63,53 @@ We can validate that both are installed by running the following commands in the
 We can use `npm` to globally install `grunt` by using the following command in the terminal window:
 
 ```
-  npm install -g grunt-cli
+  sudo npm install -g grunt-cli
 ```
 
-### Git
-[Git](https://git-scm.com/) is probably the most popular open source software available to manage source code. Git allows us to distribute code to ourselves or other developers and provides a robust mechanism for tracking changes, creating branches, and staging changes to software, or in our case, web projects.
+> Windows users should omit "sudo ", and may need to run the command-line with elevated privileges
 
-We can install `Git` by following the directions on the [download](https://git-scm.com/downloads) page and using on the installers for our current operating system.
+### Downloading the training files
+Now that we have all the necessary requirements out of the way we can proceed to download a copy of the training files located within the Master branch.
 
-> **Windows** users: select the option to enable symlinks during installation of Git.
+Begin by locating the green `Clone or download` dropdown button and choosing **Download ZIP**.  Locate the zipped file named `components-master.zip` and extract it's contents. Make sure to expand the `components-master.zip` folder and rename the `components-master` folder to `components`.  For sake of demonstration, I will be copying this folder to a directory called **Sandbox**.
 
-We can validate that `Git` is installed properly by running the following command in the terminal window:
+## Importing our project into Acquia Dev Desktop
+**If you decided to use Acquia Dev Desktop then follow these steps to setup your Drupal instance.**
 
-```
-  which git
-```
+**Step One**
+Open Acquia Dev Desktop
 
-> Git for Windows provides a BASH emulation used to run Git from the command line. `*NIX` users should feel right at home, as the BASH emulation behaves just like the `git` command in LINUX and UNIX environments.
+- If you are presented with the Startup window then select **Start with an existing Drupal site located on my compoter**
+- Otherwise select the + sign located in the bottom left of the UI
+- Select **Import local Drupal site.**
 
-### Cloning the training files
-Now that we have all the necessary requirements out of the way we can proceed to cloning a copy of the training files located within the Master branch. We will be using the `Terminal` window and `Git` during different exercises to make sure everyone is at the same starting point.
+**Step Two**
+Complete the following fields to import your Drupal instance:
 
-Begin by opening a terminal window and navigating to a location on our laptop or computer where we will be working from. The location does not matter but for sake of demonstration, I will be using a folder called **Sandbox**. To change into this directory we will enter the following command within the terminal window:
+- Local codebase folder: Select the Change button and navigate to the `/web` root of the `components` folder located at `/sandbox/components/web`
+- Local site name: **components**
+- Use PHP: Select **7.1.12**
+- Database: Select Start with MySQL database dump file
+- Dump file: Select the Browse button and navigate to the `/db` folder located one level up from the `web` folder and select `components.sql`
+- New database name: **components**
+- Select the OK button
 
-```
-  cd Sandbox
-```
+> You may be prompted to enter your admin credentials to complete the process.
 
-Now that we have changed into the Sandbox directory we can clone the Master branch by entering the following command within the terminal window:
+** We now have Acquia Dev Desktop configured with our Drupal 8 Instance**
 
-```
-  git clone https://github.com/forumone/components.git
-```
+> NOTICE: We are not finished with our setup yet...
 
-To verify that our newly cloned folder exists we can enter the following command within the terminal window to list the contents of our Sandbox:
 
-```
-  ls
-```
-
-> **Windows** users: If you’re not using Git Bash you may need to use the `dir` command instead of `ls`.
-
-Finally we will want to change into the components folder by entering the following command within the terminal window:
-
-```
-  cd components
-```
-
-## Using Lando
-Now that we have Lando installed we can start and configure our Drupal 8 instance by following these steps:
+## Using Lando (Alternative setup)
+If you chose to use Lando instead of Acquia Dev Desktop then you can follow the steps outlined below to configure our Drupal 8 instance.
 
 **Step One**
 Starting Lando
+- Open a terminal widow and navigate to the `components` directory.
+
+```
+cd
 
 ```
   lando start
