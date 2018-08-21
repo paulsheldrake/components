@@ -169,58 +169,61 @@ The following setup directions are only for those users that did not setup there
 
 ### Lando
 
-To eliminate the need for various setups that may involve different **AMP** (Apache/MySQL/PHP) stacks and consider yousrself an advanced user then you can choose to use `Lando` a Docker based development environment to work with PHP, MySQL and Drupal.  You can download and install Lando for Windows, MACOS and Linux by navigating to the [download](https://docs.devwithlando.io/installation/installing.html) page and following the install prompts for your operating system.
+To eliminate the need for various setups that may involve different **AMP** (Apache/MySQL/PHP) stacks and consider yousrself an advanced user then you can choose to use `Lando` a Docker based development environment to work with PHP, MySQL and Drupal.  You can download and install Lando for Windows, MACOS and Linux by navigating to the [download](https://docs.devwithlando.io/installation/installing.html) page and following the install prompts for your operating system.  Make sure to check the [System Requirements](https://docs.devwithlando.io/installation/system-requirements.html) prior to installing Lando.
 
 Once completed we will revisit how to use Lando to import a Drupal 8 website as well as how to start a server, run composer, drush and import the initial database snapshot that will be used throughout the training.
 
 
-## Using Lando (Alternative setup)
-If you chose to use Lando instead of Acquia Dev Desktop then you can follow the steps outlined below to configure our Drupal 8 instance.
-
-**Step One**
-Starting Lando
-- Open a terminal widow and navigate to the `components` directory.
+### Setup
+The initial setup of Lando requires a .lando configuration file which I have already provided in the root of the project.  In order to initialize the Docker containers needed by Lando we will need to execure the following commands within the terminal window.
 
 ```
-cd
-
-```
+  cd Sandbox/components
   lando start
 ```
 
-
-Using `Composer` to install Drupal.
-
-Currently we have the skeleton of a Drupal 8 project.  The main reason for using a Composer based workflow recommended by Drupal is to ensure that our codebase or repository contains minimal artifacts or files.  In fact if we take a quick look at the folder structure we will see the following:
-
-- **config/sync** : Configuration files that we can use to manage Drupal instances
-- **db** : Database snapshots that we will use throughout the training
-- **drush**: A command line tool we will use to clear cache and other tasks with Drupal
-- **scripts/composer**: Composer scripts that run to automate various tasks
-- **web**: Drupal’s web root where we will find all it’s files including the Theme directory
-
-Also if we look we will see a file called `composer.json` which is often referred to as a package.  The `composer.json` file allows us to manage Drupal core, Modules and dependencies, patches that a module may need and various other settings.  It is the `composer.json` file that allows us to distribute a Drupal project to team members that will ensure every Drupal instance is identical.
-
-To complete the scaffolding of our Drupal 8 project we will need to open a terminal window and run the following command:
+Once Lando finishes spinning up the containers we need to scaffold up our Drupal 8 instance by running the composer install command within the terminal window.  However, Lando requires the lando prefix in order to execute other tools so enter the following command within the terminal window.
 
 ```
   lando composer install
 ```
 
-**Step Three**
-Importing the database
+With our Drupal 8 instance now configured we need to import the database.  Located within the db folder is a SQL dump we can use to import into the MySQL container using the `db-import` command.
+
 
 ```
-  lando db-import database.sql.gz
+  cd db
+  lando db-import components.sql
 ```
 
-**Step Four**
-We can now preview our Drupal 8 website by either selecting the URL within the terminal window or by opening a browser and navigating to http://components.lndo.site/user and logging in with the following credentials:
+In order for Drupal to use our newly imported database we will need to uncomment the Database configuration located within the `settings.local.php` file located in the web/sites/default folder.
+
+Open up your favorite code editor and locate the following, uncomment it and save the file.
+
+```
+// Lando database settings
+//  $databases['default']['default'] = array (
+//    'database' => 'drupal8',
+//    'username' => 'drupal8',
+//    'password' => 'drupal8',
+//    'prefix' => '',
+//    'host' => 'database',
+//    'port' => '3306',
+//    'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+//    'driver' => 'mysql',
+//  );
+```
+
+Our database is now imported and all that is left to do is to configure our theme and scaffold up our Pattern Lab instance and compile the Sass files need for our theme.  We can easily do that by entering the following command within the terminal window..
+
+```
+  cd ..
+  cd themes/gesso
+  npm install
+  grunt gessoBuild
+```
+
+Now that our theme is no installed and configured we can preview our Drupal 8 website by either selecting the URL within the terminal window or by opening a browser and navigating to http://components.lndo.site/user and logging in with the following credentials:
 
 - username: **admin**
 - password: **admin**
-
-## Congratulations
-We now have a Drupal 8 project titled Pacific Whale Conservancy that we will be using throughout the remaining training.  This Drupal 8 instance is configured with the latest best practices in mind for site building.  This includes use of the Media module, Paragraphs, various Twig modules and the Component and UI Libraries modules.
-
-This training does not cover site building but we will briefly discuss various decision made when implementing a component-based theme using Twig and Pattern Lab.
