@@ -7,7 +7,7 @@ Below is a list of requirements that will ensure you get the most out of the tra
 
 ## Requirements
 - Administrative rights to install and configure various applications
-- Acquia Dev Desktop or Lando
+- Acquia Dev Desktop or Lando (See Alternative setup)
 - Terminal
 - Composer
 - Node & NPM
@@ -15,40 +15,28 @@ Below is a list of requirements that will ensure you get the most out of the tra
 - Git
 
 ### Administrative rights
-You will need to ensure that you have administrative rights to install, configure or manage file permissions required by the list of tools outlined above as they will be needed to follow along in class.  Bellow is a list of everything that needs to be installed.
-
-If you do not have administrative rights, in the case of using a work laptop, then please have your company install the following items for you.
+You will need to ensure that you have administrative rights to install, configure or manage file permissions required by the list of tools outlined above.  If you do not have administrative rights, in the case of using a work laptop, then please have your company install the following items for you.
 
 
 ### Acquia Dev Desktop
-To eliminate the need for various setups that may involve different AMP (Apache/MySQL/PHP) stacks we recommend using Acquia Dev Desktop to work with PHP, MySQL and Drupal. You can download and install Dev Desktop for both Windows and MAC by navigating to the [download](https://dev.acquia.com/downloads) page and following the install prompts for your operating system.
-
-Once completed we will revisit how to use Acquia Dev Desktop to import a local Drupal 8 website, including how to import the intitial database snapshot that will be used throughout the training.
-
-
-### Lando (Alternative setup)
-##### This is an alternative setup to using Acquia Dev Desktop and is for advanced users only.
-
-To eliminate the need for various setups that may involve different **AMP** (Apache/MySQL/PHP) stacks and consider yousrself an advanced user then you can choose to use `Lando` a Docker based development environment to work with PHP, MySQL and Drupal.  You can download and install Lando for Windows, MACOS and Linux by navigating to the [download](https://docs.devwithlando.io/installation/installing.html) page and following the install prompts for your operating system.
-
-Once completed we will revisit how to use Lando to import a Drupal 8 website as well as how to start a server, run composer, drush and import the initial database snapshot that will be used throughout the training.
+To eliminate the need for various setups that may involve different AMP (Apache/MySQL/PHP) stacks we recommend using Acquia Dev Desktop to work with PHP, MySQL and Drupal. You can download and install Acquia Dev Desktop for both Windows and MAC by navigating to the [download](https://dev.acquia.com/downloads) page and following the install prompts for your operating system.
 
 ### Terminal
-The terminal is an interface in which we can type and execute text based commands.  It can be much faster to complete some tasks using a Terminal than with graphical applications and menus. The remaining requirements will all be ran from a Terminal using a series of command line prompts.  Take a moment to ensure that you have a Terminal (MAC) or Command Prompt (Windows) available to use.
+The terminal is an interface in which we can execute text based commands.  It can be much faster to complete some tasks using a Terminal than with graphical applications and menus. The remaining requirements will be mostly ran from a Terminal using a series of command line prompts.  Take a moment to ensure that you have a Terminal (MAC) or Command Prompt (Windows) available to use.
 
-We will be using the terminal window to work with tools such as `Composer`, `NPM`, `Grunt` and `Git` throughout the training.  It is important to be comfortable using the command line as it should be part of any daily Front End development workflow.
+We will be using the terminal window to work with tools such as `Composer`, `NPM`, and `Grunt` throughout the training.  It is important to be comfortable using the command line as it should be part of any daily Front End development workflow.
 
 ### Composer
-Composer (https://getcomposer.org/) is a dependency manager for PHP that allows us to perform a multitude of tasks; everything from creating a Drupal project to declaring libraries and even installing contributed modules, just to name a few. The advantage of using Composer is that it allows us to quickly install and update dependencies by simply running a few commands from a terminal window.
+Composer (https://getcomposer.org/) is a dependency manager for PHP that allows us to perform a multitude of tasks; everything from creating a Drupal project to declaring libraries and even installing contributed modules. The advantage of using Composer is that it allows us to quickly install and update dependencies by simply running a few commands from a terminal window.
 
 Both `Acquia Dev Desktop` and `Lando` will allow us to run these commands without the need to physically install `Composer` on our computer or laptop.  We will revisit the various `Composer` commands that will be used during the training.
 
 ### Node & NPM
-[Node](https://nodejs.org/en/) is a cross platform runtime environment for creating server side and networking applications. Javascript running outside the browser. [NPM](https://www.npmjs.com/) is the package manager for JavaScript used to install, share, and distribute code and is used to manage dependencies in projects.
+[Node](https://nodejs.org/en/) is a cross platform runtime environment for creating server side and networking applications. JavaScript running outside the browser. [NPM](https://www.npmjs.com/) is the package manager for JavaScript used to install, share, and distribute code and is used to manage dependencies in projects.
 
 > We will be using NPM to manage dependencies when working with themes in Drupal 8.
 
-We can install `Node JS` and `NPM` globally by following the directions on the [download](https://nodejs.org/en/download/) page and using one of the current LTS installers for our current operating system.  Installing `Node JS` will automatically install `NPM` as well.
+We can install `Node JS` and `NPM` globally by following the directions on the [download](https://nodejs.org/en/download/) page and selecting `8.11.4 LTS` installer for your current operating system.  Installing `Node JS` will automatically install `NPM` as well.
 
 We can validate that both are installed by running the following commands in the terminal window:
 
@@ -56,6 +44,8 @@ We can validate that both are installed by running the following commands in the
   node -v
   npm -v
 ```
+
+> Your terminal should be displaying **v8.11.4** for Node and **5.6.0** for NPM
 
 ### Grunt
 [Grunt](https://gruntjs.com/) is a JavaScript task runner that allows us to perform repetitive tasks like minification, compilation, unit testing, linting and more. We use `Grunt` to compile Sass, Pattern Lab and watch for file changes during development.
@@ -68,25 +58,30 @@ We can use `npm` to globally install `grunt` by using the following command in t
 
 > Windows users should omit "sudo ", and may need to run the command-line with elevated privileges
 
+
+
+
+## Using the training files and configuring Drupal
+
 ### Downloading the training files
-Now that we have all the necessary requirements out of the way we can proceed to download a copy of the training files located within the Master branch.
+Now that we have all the necessary requirements out of the way we can proceed to downloading a copy of the training files located within the Master branch.
 
-Begin by locating the green `Clone or download` dropdown button and choosing **Download ZIP**.  Locate the zipped file named `components-master.zip` and extract it's contents. Make sure to expand the `components-master.zip` folder and rename the `components-master` folder to `components`.  For sake of demonstration, I will be copying this folder to a directory called **Sandbox**.
+Begin by locating the green `Clone or download` drop-down button and choosing **Download ZIP**.  Locate the zipped file named `components-master.zip` and extract it's contents. Make sure to expand the `components-master.zip` folder and rename the `components-master` folder to `components`.  For sake of demonstration, I will be copying this folder to a directory called **Sandbox**.
 
-## Importing our project into Acquia Dev Desktop
-**If you decided to use Acquia Dev Desktop then follow these steps to setup your Drupal instance.**
+### Importing the project into Acquia Dev Desktop
+Follow the steps outlined below to configure an existing Drupal site with Acquia Dev Desktop:
 
-**Step One**
+**Step One:**
 Open Acquia Dev Desktop
 
-- If you are presented with the Startup window then select **Start with an existing Drupal site located on my compoter**
+- If you are presented with the Startup window then select **Start with an existing Drupal site located on my computer**
 - Otherwise select the + sign located in the bottom left of the UI
 - Select **Import local Drupal site.**
 
-**Step Two**
+**Step Two:**
 Complete the following fields to import your Drupal instance:
 
-- Local codebase folder: Select the Change button and navigate to the `/web` root of the `components` folder located at `/sandbox/components/web`
+- Local codebase folder: Select the Change button and navigate to the `/web` root of the `components` folder located at `/Sandbox/components/web`
 - Local site name: **components**
 - Use PHP: Select **7.1.12**
 - Database: Select Start with MySQL database dump file
@@ -96,9 +91,58 @@ Complete the following fields to import your Drupal instance:
 
 > You may be prompted to enter your admin credentials to complete the process.
 
-** We now have Acquia Dev Desktop configured with our Drupal 8 Instance**
+### Using Composer to install Drupal.
+Currently we have the skeleton of a Drupal 8 project.  The main reason for using a Composer based workflow is to ensure that our code base or repository contains minimal artifacts or files.  In fact if we take a quick look at the folder structure we will see the following:
 
-> NOTICE: We are not finished with our setup yet...
+- **config/sync** : Configuration files that we can use to manage Drupal instances
+- **db** : Database snapshots that we will use throughout the training
+- **drush**: A command line tool we will use to clear cache and other tasks with Drupal
+- **scripts/composer**: Composer scripts that run to automate various tasks
+- **web**: Drupal’s web root where we will find all it’s files including the Theme directory
+
+Also if we look we will see a file called `composer.json` which is often referred to as a package.  The `composer.json` file allows us to manage Drupal core, Modules and dependencies, patches that a module may need and various other settings.  It is the `composer.json` file that allows us to distribute a Drupal project to team members that will ensure every Drupal instance is identical.
+
+To complete the scaffolding of our Drupal 8 project we will need to open Acquia Dev Desktop terminal window.
+- Select the More button located in the bottom left of the UI.
+- Choose Open Console
+
+We should now be within the web root of our Drupal 8 site.  The `composer.json` file is always located outside the `web` root so we will need to navigate up a level by entering the following command:
+
+```
+cd ..
+```
+
+We can now run composer install by entering the following command:
+
+```
+composer install
+```
+
+If we now review the folder structure we will see the following:
+
+- **vendor** : All vendor files and dependencies needed by Drupal
+- **web/core** : Drupal core folder and files
+
+
+### Using NPM and Grunt to install our theme.
+
+
+
+
+
+
+
+## Alternative Setup
+The following setup directions are only for those users that did not setup there Drupal instance using Acquia Dev Desktop.
+
+> This is for Advanced users only!
+
+
+### Lando
+
+To eliminate the need for various setups that may involve different **AMP** (Apache/MySQL/PHP) stacks and consider yousrself an advanced user then you can choose to use `Lando` a Docker based development environment to work with PHP, MySQL and Drupal.  You can download and install Lando for Windows, MACOS and Linux by navigating to the [download](https://docs.devwithlando.io/installation/installing.html) page and following the install prompts for your operating system.
+
+Once completed we will revisit how to use Lando to import a Drupal 8 website as well as how to start a server, run composer, drush and import the initial database snapshot that will be used throughout the training.
 
 
 ## Using Lando (Alternative setup)
@@ -115,7 +159,7 @@ cd
   lando start
 ```
 
-**Step Two**
+
 Using `Composer` to install Drupal.
 
 Currently we have the skeleton of a Drupal 8 project.  The main reason for using a Composer based workflow recommended by Drupal is to ensure that our codebase or repository contains minimal artifacts or files.  In fact if we take a quick look at the folder structure we will see the following:
