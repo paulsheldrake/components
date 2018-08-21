@@ -59,8 +59,6 @@ We can use `npm` to globally install `grunt` by using the following command in t
 > Windows users should omit "sudo ", and may need to run the command-line with elevated privileges
 
 
-
-
 ## Using the training files and configuring Drupal
 
 ### Downloading the training files
@@ -103,8 +101,8 @@ Currently we have the skeleton of a Drupal 8 project.  The main reason for using
 Also if we look we will see a file called `composer.json` which is often referred to as a package.  The `composer.json` file allows us to manage Drupal core, Modules and dependencies, patches that a module may need and various other settings.  It is the `composer.json` file that allows us to distribute a Drupal project to team members that will ensure every Drupal instance is identical.
 
 To complete the scaffolding of our Drupal 8 project we will need to open Acquia Dev Desktop terminal window.
-- Select the More button located in the bottom left of the UI.
-- Choose Open Console
+- Select the `More button` located in the bottom left of the UI.
+- Choose `Open Console`
 
 We should now be within the web root of our Drupal 8 site.  The `composer.json` file is always located outside the `web` root so we will need to navigate up a level by entering the following command:
 
@@ -125,6 +123,33 @@ If we now review the folder structure we will see the following:
 
 
 ### Using NPM and Grunt to install our theme.
+We will be using the [Gesso](https://www.drupal.org/project/gesso) theme which is a Sass-based starter theme the outputs accessible HTML5 markup. It uses a mobile-first responsive approach and leverages [SMACSS](https://smacss.com/) to organize styles as outlined in the [Drupal 8 CSS architecture guidelines](https://www.drupal.org/node/1887918). This encourages a component-based approach to theming through the creation of discrete, reusable UI elements.
+
+Gesso also includes [Pattern Lab](https://patternlab.io/).
+
+At its core, Pattern Lab is a static site generator (powered by either PHP or Node) that stitches together UI components. But there's a whole lot more to it than that, as we will find out once we begin looking at components.
+
+To ensure Gesso and Pattern Lab are properly configured we will need to execute a few commands from the terminal window to ensure that all the necessary files and depenedencies are downloaded and configured.
+
+Make sure to open your terminal window and navigate to the gesso directory by entering the following command from the web directory:
+
+```
+cd themes/gesso
+```
+
+We can now run npm install by entering the following command:
+
+```
+npm install
+```
+Once NPM has finished downloading its dependencies we will need to only run a single Grunt command to compile Pattern Lab and Sass files used by Gesso to display our theme.  With the terminal window still open, execute this final command:
+
+```
+grunt gessoBuild
+```
+
+
+
 
 
 
@@ -155,6 +180,7 @@ cd
 ```
   lando start
 ```
+
 
 Using `Composer` to install Drupal.
 
