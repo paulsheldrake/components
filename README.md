@@ -129,9 +129,6 @@ If we now review the folder structure we will see the following:
 
 
 
-
-
-
 ## Alternative Setup
 The following setup directions are only for those users that did not setup there Drupal instance using Acquia Dev Desktop.
 
@@ -158,7 +155,6 @@ cd
 ```
   lando start
 ```
-
 
 Using `Composer` to install Drupal.
 
