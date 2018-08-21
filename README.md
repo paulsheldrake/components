@@ -148,11 +148,18 @@ Once NPM has finished downloading its dependencies we will need to only run a si
 grunt gessoBuild
 ```
 
+### Previewing out site.
+We can now preview our Drupal 8 website by either selecting the URL next to Local site within Acquia Dev Desktop or by opening a browser and navigating to `http://components.dd:8083`
+
+In order to login and browse around the Drupal admin navigating to `http://components.dd:8083/user` and enter the following credentials:
+- username: **admin**
+- password: **admin**
 
 
+## Congratulations
+We now have a Drupal 8 project titled Pacific Whale Conservancy that we will be using throughout the remaining training. This Drupal 8 instance is configured with the latest best practices in mind for site building. This includes use of the Media module, Paragraphs, various Twig modules and the Component libraries modules.
 
-
-
+This training does not cover site building but we will briefly discuss various decision made when implementing a component-based theme using Twig and Pattern Lab.
 
 ## Alternative Setup
 The following setup directions are only for those users that did not setup there Drupal instance using Acquia Dev Desktop.
