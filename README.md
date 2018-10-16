@@ -218,7 +218,7 @@ Our database is now imported and all that is left to do is to configure our them
 
 ```
   cd ..
-  cd themes/gesso
+  cd web/themes/gesso
   npm install
   grunt gessoBuild
 ```
