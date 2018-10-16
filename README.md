@@ -134,7 +134,7 @@ To ensure Gesso and Pattern Lab are properly configured we will need to execute 
 Make sure to open your terminal window and navigate to the gesso directory by entering the following command from the web directory:
 
 ```
-cd themes/gesso
+cd web/themes/gesso
 ```
 
 We can now run npm install by entering the following command:

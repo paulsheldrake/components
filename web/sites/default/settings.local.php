@@ -68,16 +68,16 @@ $settings['cache']['bins']['render'] = 'cache.backend.null';
 $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 
 // Lando database settings
-//  $databases['default']['default'] = array (
-//    'database' => 'drupal8',
-//    'username' => 'drupal8',
-//    'password' => 'drupal8',
-//    'prefix' => '',
-//    'host' => 'database',
-//    'port' => '3306',
-//    'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-//    'driver' => 'mysql',
-//  );
+// $databases['default']['default'] = array (
+//   'database' => 'drupal8',
+//   'username' => 'drupal8',
+//   'password' => 'drupal8',
+//   'prefix' => '',
+//   'host' => 'database',
+//   'port' => '3306',
+//   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+//   'driver' => 'mysql',
+// );
 
 /**
  * Trusted host configuration.
