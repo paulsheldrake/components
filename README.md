@@ -227,3 +227,21 @@ Now that our theme is no installed and configured we can preview our Drupal 8 we
 
 - username: **admin**
 - password: **admin**
+
+### Docksal
+
+Docksal is another docker based local development platform.  This tool provides the ability to do a little more scripting to automate installation of sites locally.
+
+Install the Drupal files with `compoaser install` per the instructions above.
+
+Compile the theme files after installing grunt per the instructions above.
+
+```
+  cd web/themes/gesso
+  npm install
+  grunt gessoBuild
+```
+
+Initialise the docksal instance `fin init`. During the init process the docksal settings.local.php file will be move to the correct spot and the database automatically imported.
+
+You should see a site at http://components.docksal/ once complete
