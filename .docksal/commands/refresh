@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+#: exec_target = cli
+
+## Usage: fin refresh
+
+cd /var/www/${DOCROOT}
+
+echo "Truncating Database..."
+drush sql-drop -y
+
+echo "Importing Database..."
+drush sql-cli < ${PROJECT_ROOT}/db/components.sql
+
+cd ${PROJECT_ROOT}
+composer install
+
+

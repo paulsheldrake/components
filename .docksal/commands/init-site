@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+#: exec_target = cli
+
+## Initialize/reinstall site
+##
+## Usage: fin init-site
+
+# Abort if anything fails
+set -e
+
+#-------------------------- Settings --------------------------------
+
+ENVIRONMENT=$1
+# PROJECT_ROOT and DOCROOT are set as env variables in cli
+SITE_DIRECTORY="default"
+DOCROOT_PATH="${PROJECT_ROOT}/${DOCROOT}"
+SITEDIR_PATH="${DOCROOT_PATH}/sites/${SITE_DIRECTORY}"
+
+#-------------------------- END: Settings --------------------------------
+
+#-------------------------- Helper functions --------------------------------
+
+
+
+#-------------------------- END: Helper functions --------------------------------
+
+#-------------------------- Functions --------------------------------
+
+# Initialize local settings files
+init_settings ()
+{
+	# Copy from settings templates
+	cp -f "${PROJECT_ROOT}/.docksal/etc/conf/settings.local.php" "${SITEDIR_PATH}/settings.local.php"
+}
+
+refresh () {
+    cd ${DOCROOT_PATH}
+    echo "Importing Database..."
+    drush sql-cli < ${PROJECT_ROOT}/db/components.sql
+}
+#-------------------------- END: Functions --------------------------------
+
+#-------------------------- Execution --------------------------------
+
+mkdir ~/tmp
+chmod 755 ~/tmp
+sudo localedef -i en_US -f UTF-8 en_US.UTF-8
+
+# Project initialization steps
+init_settings
+refresh
+#-------------------------- END: Execution --------------------------------
