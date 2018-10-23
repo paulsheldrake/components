@@ -10,3 +10,7 @@
 /web/sites/default/files/css/
 /web/sites/default/files/js/
 /web/sites/default/files/php/
+
+# Ignore phpstorm files
+.idea
+.DS_Store
